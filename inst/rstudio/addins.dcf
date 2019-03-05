@@ -1,0 +1,9 @@
+Name: R for Data Science
+Description: Baca buku R for Data Science
+Binding: baca_r4ds
+Interactive: false
+
+Name: R for Data Science: Exercise Solutions
+Description: Baca solusi dari latihan soal dalam buku R for Data Science
+Binding: baca_solusi_r4ds
+Interactive: false
