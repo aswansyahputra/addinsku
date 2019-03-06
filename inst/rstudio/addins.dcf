@@ -7,3 +7,13 @@ Name: R for Data Science: Exercise Solutions
 Description: Baca solusi dari latihan soal dalam buku R for Data Science
 Binding: baca_solusi_r4ds
 Interactive: false
+
+Name: Persiapan kerja
+Description: Mempersiapkan struktur direktori yang direkomendasikan serta memulai sistem git lokal
+Binding: persiapan
+Interactive: false
+
+Name: Ganti Skema Tema
+Description: Mengganti tema RStudio antar skema terang dan gelap
+Binding: ganti_skema
+Interactive: false

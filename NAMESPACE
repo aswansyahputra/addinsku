@@ -2,3 +2,5 @@
 
 export(baca_r4ds)
 export(baca_solusi_r4ds)
+export(ganti_skema)
+export(persiapan)

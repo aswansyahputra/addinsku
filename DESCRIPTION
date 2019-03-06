@@ -13,3 +13,5 @@ LazyData: true
 RoxygenNote: 6.1.1
 URL: https://github.com/aswansyahputra/addinsku
 BugReports: https://github.com/aswansyahputra/addinsku/issues
+Imports: 
+    rstudioapi
