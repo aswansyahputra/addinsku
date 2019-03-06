@@ -4,8 +4,12 @@
 #'
 #' @export
 
-baca_r4ds <- function(){
-  rstudioapi::viewer("https://r4ds.had.co.nz/")
+baca_r4ds <- function() {
+  if (rstudioapi::hasFun("viewer")) {
+    rstudioapi::viewer("https://r4ds.had.co.nz/")
+  } else {
+    utils::browseURL("https://r4ds.had.co.nz/")
+  }
 }
 
 #' R for Data Science: Exercise Solutions
@@ -14,8 +18,12 @@ baca_r4ds <- function(){
 #'
 #' @export
 
-baca_solusi_r4ds <- function(){
-  rstudioapi::viewer("https://jrnold.github.io/r4ds-exercise-solutions/")
+baca_solusi_r4ds <- function() {
+  if (rstudioapi::hasFun("viewer")) {
+    rstudioapi::viewer("https://jrnold.github.io/r4ds-exercise-solutions/")
+  } else {
+    utils::browseURL("https://jrnold.github.io/r4ds-exercise-solutions/")
+  }
 }
 
 
@@ -25,8 +33,7 @@ baca_solusi_r4ds <- function(){
 #'
 #' @export
 
-persiapan <- function(){
-
+persiapan <- function() {
   if (!dir.exists("R")) {
     dir.create("R")
   }
@@ -58,11 +65,8 @@ persiapan <- function(){
 #' @export
 
 ganti_skema <- function() {
-  if (rstudioapi::versionInfo()$version != "1.2") {
-    stop("Maaf, fungsi ini hanya bekerja pada RStudio versi 1.2.xxx!", call. = FALSE)
-  } else {
-    tema_skrg <- rstudioapi::getThemeInfo()
-    tema_baru <- ifelse(tema_skrg$dark, "TextMate", "Material")
-    rstudioapi::applyTheme(tema_baru)
-  }
+  rstudioapi::verifyAvailable("1.2")
+  tema_skrg <- rstudioapi::getThemeInfo()
+  tema_baru <- ifelse(tema_skrg$dark, "Textmate (default)", "Material")
+  rstudioapi::applyTheme(tema_baru)
 }
