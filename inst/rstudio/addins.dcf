@@ -18,17 +18,17 @@ Description: Mempersiapkan struktur direktori yang direkomendasikan serta memula
 Binding: persiapan
 Interactive: false
 
-Name: Cadangkan nama paket
+Name: 💾 Cadangkan nama paket
 Description: Mencadangkan nama paket yang saat ini telah terpasang
 Binding: cadangkan_nama_paket
 Interactive: false
 
-Name: Pasang paket tercadangkan
+Name: 🛠 Pasang paket tercadangkan
 Description: Memasang paket-paket yang sebelumnya telah dicadangkan
 Binding: pasang_paket_tercadangkan
 Interactive: false
 
-Name: Hapus paket duplikat
+Name: ❌ Hapus paket duplikat
 Description: Menghapus paket yang terpasang lebih dari satu kali
 Binding: hapus_paket_duplikat
 Interactive: false
