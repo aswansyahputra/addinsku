@@ -1,8 +1,6 @@
 #' R for Data Science
 #'
 #' Baca buku R for Data Science
-#'
-#' @export
 
 baca_r4ds <- function() {
   if (rstudioapi::hasFun("viewer")) {
@@ -15,8 +13,6 @@ baca_r4ds <- function() {
 #' R for Data Science: Exercise Solutions
 #'
 #' Baca solusi dari latihan soal dalam buku R for Data Science
-#'
-#' @export
 
 baca_solusi_r4ds <- function() {
   if (rstudioapi::hasFun("viewer")) {
@@ -30,8 +26,6 @@ baca_solusi_r4ds <- function() {
 #' Persiapan kerja
 #'
 #' Mempersiapkan struktur direktori yang direkomendasikan serta memulai sistem git lokal
-#'
-#' @export
 
 persiapan <- function() {
   if (!dir.exists("R")) {
@@ -56,13 +50,16 @@ persiapan <- function() {
 
   if (Sys.which("git") != "") {
     system("git init")
+    file.create(".gitignore")
+    cat(".Rhistory", ".RData", ".Rproj.user", file = ".gitignore", sep = "\n")
   }
+
+  rstudioapi::restartSession()
 }
 
-#' Ganti Skema Tema
+#' Ganti skema tema
 #'
 #' Mengganti tema RStudio antar skema terang dan gelap
-#' @export
 
 ganti_skema <- function() {
   rstudioapi::verifyAvailable("1.2")
@@ -70,3 +67,54 @@ ganti_skema <- function() {
   tema_baru <- ifelse(tema_skrg$dark, "Textmate (default)", "Material")
   rstudioapi::applyTheme(tema_baru)
 }
+
+#' Hapus paket duplikat
+#'
+#' Menghapus paket yang terpasang lebih dari satu kali
+
+hapus_paket_duplikat <- function() {
+  libdir <- .libPaths()
+  libpath <- libdir[grep("home", x = libdir)]
+  pkgs <- unname(installed.packages()[,1])
+
+  if (anyDuplicated(pkgs) == 0) {
+    message("Tidak ada duplikasi paket!")
+  } else {
+    remove.packages(pkgs[duplicated(pkgs)], lib = libpath)
+    message(
+      "Paket: ",
+      paste0(pkgs[duplicated(pkgs)], collapse = ", "),
+      " telah dihapus dari ",
+      libpath
+    )
+  }
+
+}
+
+#' Cadangkan nama paket
+#'
+#' Mencadangkan nama paket yang saat ini telah terpasang
+
+cadangkan_nama_paket <- function(){
+  pkgs <- unname(installed.packages()[,1])
+  pkgs <- pkgs[!pkgs %in% c("stats", "graphics", "grDevices", "utils", "datasets", "methods", "base")]
+  target <- rstudioapi::selectFile(caption = "Save File",
+                                   label = "Save",
+                                   filter = "Rda(*.rda)",
+                                   existing = FALSE)
+  save(pkgs, file = paste0(target, ".rda"))
+}
+
+#' Pasang paket tercadangkan
+#'
+#' Memasang paket-paket yang sebelumnya telah dicadangkan
+
+pasang_paket_tercadangkan <- function(){
+  path <- rstudioapi::selectFile(caption = "Pilih berkas nama paket",
+                                 filter = "Rda Files (*.rda)",
+                                 existing = TRUE)
+  load(path)
+  install.packages(pkgs)
+}
+
+

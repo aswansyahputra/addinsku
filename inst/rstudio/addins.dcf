@@ -1,19 +1,34 @@
-Name: R for Data Science
+Name: 🌓 Ganti skema tema
+Description: Mengganti tema RStudio antar skema terang dan gelap
+Binding: ganti_skema
+Interactive: false
+
+Name: 📖 R for Data Science
 Description: Baca buku R for Data Science
 Binding: baca_r4ds
 Interactive: false
 
-Name: R for Data Science: Exercise Solutions
+Name: 📖 R for Data Science: Exercise Solutions
 Description: Baca solusi dari latihan soal dalam buku R for Data Science
 Binding: baca_solusi_r4ds
 Interactive: false
 
-Name: Persiapan kerja
+Name: 💼 Persiapan kerja
 Description: Mempersiapkan struktur direktori yang direkomendasikan serta memulai sistem git lokal
 Binding: persiapan
 Interactive: false
 
-Name: Ganti Skema Tema
-Description: Mengganti tema RStudio antar skema terang dan gelap
-Binding: ganti_skema
+Name: Cadangkan nama paket
+Description: Mencadangkan nama paket yang saat ini telah terpasang
+Binding: cadangkan_nama_paket
+Interactive: false
+
+Name: Pasang paket tercadangkan
+Description: Memasang paket-paket yang sebelumnya telah dicadangkan
+Binding: pasang_paket_tercadangkan
+Interactive: false
+
+Name: Hapus paket duplikat
+Description: Menghapus paket yang terpasang lebih dari satu kali
+Binding: hapus_paket_duplikat
 Interactive: false

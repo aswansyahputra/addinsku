@@ -2,7 +2,7 @@
 % Please edit documentation in R/addinsku.R
 \name{ganti_skema}
 \alias{ganti_skema}
-\title{Ganti Skema Tema}
+\title{Ganti skema tema}
 \usage{
 ganti_skema()
 }
