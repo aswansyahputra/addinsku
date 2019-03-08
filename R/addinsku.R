@@ -48,13 +48,20 @@ persiapan <- function() {
     file.create(".here")
   }
 
-  if (Sys.which("git") != "") {
+  if (Sys.which("git") != "" & !dir.exists(".git")) {
     system("git init")
+  }
+
+  if (!file.exists(".gitignore") & dir.exists(".git")) {
     file.create(".gitignore")
     cat(".Rhistory", ".RData", ".Rproj.user", file = ".gitignore", sep = "\n")
   }
 
   rstudioapi::restartSession()
+  rstudioapi::showDialog(
+    title = "",
+    message = "Direktori kerja Anda telah berhasil disiapkan. Selamat berkerja!"
+  )
 }
 
 #' Ganti skema tema
