@@ -13,9 +13,19 @@ Description: Baca solusi dari latihan soal dalam buku R for Data Science
 Binding: baca_solusi_r4ds
 Interactive: false
 
+Name: 📕 R Views
+Description: Baca blog R Views
+Binding: baca_rviews
+Interactive: false
+
 Name: 💼 Persiapan kerja
 Description: Mempersiapkan struktur direktori yang direkomendasikan serta memulai sistem git lokal
 Binding: persiapan
+Interactive: false
+
+Name: ☁ Menambahkan repositori GitHub
+Description: Menambahkan repositori GitHuB sebagai remote repository
+Binding: tambah_repo_github
 Interactive: false
 
 Name: 💾 Cadangkan nama paket
