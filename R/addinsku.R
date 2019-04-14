@@ -184,13 +184,16 @@ tambah_repo_github <- function(){
 ganti_skema <- function() {
   rstudioapi::verifyAvailable("1.2")
   tema_skrg <- rstudioapi::getThemeInfo()
-  tema_baru <- ifelse(tema_skrg$dark, "Textmate (default)", "Material")
+  tema_baru <- ifelse(tema_skrg$dark, "Textmate (default)", "Cobalt")
   rstudioapi::applyTheme(tema_baru)
 }
 
 #' Hapus paket duplikat
 #'
 #' Menghapus paket yang terpasang lebih dari satu kali
+#' 
+#' @importFrom utils installed.packages
+#' @importFrom utils remove.packages
 
 hapus_paket_duplikat <- function() {
   libdir <- .libPaths()
@@ -214,6 +217,8 @@ hapus_paket_duplikat <- function() {
 #' Cadangkan nama paket
 #'
 #' Mencadangkan nama paket yang saat ini telah terpasang
+#' 
+#' @importFrom utils installed.packages
 
 cadangkan_nama_paket <- function(){
   pkgs <- unname(installed.packages()[,1])
@@ -228,6 +233,8 @@ cadangkan_nama_paket <- function(){
 #' Pasang paket tercadangkan
 #'
 #' Memasang paket-paket yang sebelumnya telah dicadangkan
+#' 
+#' @importFrom utils install.packages
 
 pasang_paket_tercadangkan <- function(){
   path <- rstudioapi::selectFile(caption = "Pilih berkas nama paket",

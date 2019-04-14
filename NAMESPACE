@@ -2,3 +2,6 @@
 
 import(miniUI)
 import(shiny)
+importFrom(utils,install.packages)
+importFrom(utils,installed.packages)
+importFrom(utils,remove.packages)
